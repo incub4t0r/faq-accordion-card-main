@@ -1,38 +1,165 @@
-.App {
-  text-align: center;
+
+:root {
+  --dividers: hsl(240, 5%, 91%);
+  --neutral-text-very-dark: hsl(237, 12%, 33%);
+  --neutral-text-dark: hsl(240, 6%, 50%);
+  --primary-text-dark-blue: hsl(238, 29%, 16%);
+  --primary-text-soft-red: hsl(14, 88%, 65%);
+  --grad-violet: hsl(273, 75%, 66%);
+  --grad-blue: hsl(240, 73%, 65%)
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Kumbh Sans', sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background: linear-gradient(to bottom, var(--grad-violet), var(--grad-blue));
 }
 
-.App-header {
-  background-color: #282c34;
+
+.center {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+.main-container {
+  background-color: white;
+  width: 940px;
+  height: 540px;
+  border-radius: 30px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+.img-container {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  /* border-radius: inherit; */
+  overflow: hidden;
+  position: ab;
+  z-index: 2;
+}
+
+.img-bg{
+  position: relative;
+  transform: translateX(-320px) translateY(-90px);
+  z-index: 1;  
+}
+
+.img-woman {
+  position: absolute;
+  transform: translateX(-75px);
+  z-index: 2;
+}
+
+.img-box{
+  position: absolute;
+  transform: translateX(-232px) translateY(50px);
+  z-index: 100;
+  animation: bounce 3s ease-in-out infinite;
+}
+
+/* bounce the img-box up and down */
+@keyframes bounce {
+  0% {
+    transform: translateX(-232px) translateY(50px);
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: translateX(-232px) translateY(40px);
   }
+  100% {
+    transform: translateX(-232px) translateY(50px);
+  }
+}
+
+
+.img-container img .desktop{
+  position: relative;
+  height: 10vh;
+}
+
+.img-container img .woman-online {
+  position: absolute;
+  z-index: 1;
+}
+
+.faq-container {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: inherit;
+  flex-direction: column;
+  margin-right: 0px;
+}
+
+.faq-container h1 {
+  font: 'Kumbh Sans', sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  margin-bottom: 20px;
+
+}
+
+.accordion-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion-item * {
+  margin: 6px 0;
+  font-size: 15px;
+  /* transition using bezier curves */
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.accordion-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.svg-arrow {
+  height: 10px;
+}
+
+.accordion-title {
+  color: var(--neutral-text-dark);
+}
+
+.accordion-title:hover {
+  font-weight: 700;
+}
+
+.accordion-content {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  color: var(--neutral-text-dark);
+  font-size: 14px;
+}
+
+.bolded-text {
+  font-weight: 700;
+  color: var(--primary-text-dark-blue);
+}
+.chevron-rotate {
+  transform: rotate(180deg);
+}
+
+hr {
+  border: 1px solid var(--dividers);
+  width: inherit;
 }
